@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voluntary Participation &middot; Get Charged Up</title>
+<meta name="description" content="Opt in to receive Get Charged Up messages, and how to stop them at any time.">
+<meta name="robots" content="index, follow">
+<style>
+:root{
+  --navy:#002868; --navy-deep:#001a45; --navy-soft:#1a3d7c; --navy-wash:#eef2f9;
+  --paper:#ffffff; --ground:#f5f7fa; --ink:#11161d; --ink-dim:#57636f;
+  --ink-faint:#8592a0; --line:#dde3ea; --ok:#0f7a3d; --warn:#a35b06; --bad:#c02626;
+  --accent:#002868; --accent-ink:#ffffff; --code-bg:#eef2f9;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#7ea2dd; --navy-deep:#0c1420; --navy-soft:#9bb6e6; --navy-wash:#16202f;
+    --paper:#141a22; --ground:#0c1118; --ink:#e7ecf3; --ink-dim:#a3b0c0;
+    --ink-faint:#74839a; --line:#27313f; --ok:#4fb87a; --warn:#d9973f; --bad:#e8706b;
+    --accent:#7ea2dd; --accent-ink:#0c1420; --code-bg:#1b2533;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+.mast{background:var(--navy-deep);color:#fff;padding:34px 0 28px;border-bottom:3px solid var(--navy)}
+@media (prefers-color-scheme: dark){.mast{border-bottom-color:var(--line)}}
+.mast .kicker{
+  margin:0 0 6px; font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:#9bb6e6; font-weight:700;
+}
+.mast h1{margin:0;font-size:clamp(26px,5vw,38px);line-height:1.15;letter-spacing:-.01em;color:#fff}
+.mast .sub{margin:10px 0 0;color:#c4d3ea;font-size:15px;max-width:60ch}
+main{background:var(--paper);padding:8px 0 56px}
+main .wrap{padding-top:28px}
+h2{
+  margin:40px 0 12px;font-size:20px;line-height:1.3;letter-spacing:-.01em;
+  padding-bottom:8px;border-bottom:1px solid var(--line);
+}
+h2:first-of-type{margin-top:24px}
+h3{margin:26px 0 8px;font-size:16px;line-height:1.35}
+p,li{color:var(--ink)}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 7px}
+a{color:var(--accent)}
+strong{font-weight:650}
+.lede{font-size:17.5px;line-height:1.6;color:var(--ink)}
+.meta{
+  margin:0 0 22px;font-size:13px;color:var(--ink-faint);
+  padding-bottom:16px;border-bottom:1px solid var(--line);
+}
+.note{
+  background:var(--navy-wash);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:16px 18px;margin:0 0 26px;
+}
+.note p:last-child,.note ul:last-child,.note ol:last-child{margin-bottom:0}
+.note .h{
+  display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:700;color:var(--accent);margin-bottom:7px;
+}
+.note.warn{border-left-color:var(--warn)}
+.note.warn .h{color:var(--warn)}
+.note.key{background:var(--navy-deep);border-color:var(--navy-deep);color:#e7ecf3}
+.note.key .h{color:#9bb6e6}
+.note.key p,.note.key li{color:#dce5f2}
+.note.key strong{color:#fff}
+.tw{overflow-x:auto;margin:0 0 22px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{
+  background:var(--navy-wash);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-dim);font-weight:700;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:650}
+code,kbd{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;
+  background:var(--code-bg);border:1px solid var(--line);border-radius:4px;padding:1px 6px;
+  white-space:nowrap;
+}
+.foot{
+  border-top:1px solid var(--line);margin-top:48px;padding:24px 0 8px;
+  font-size:13.5px;color:var(--ink-dim);
+}
+.foot p{margin:0 0 8px;color:var(--ink-dim)}
+.foot .links{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+.foot .links a{font-weight:600;text-decoration:none}
+.foot .links a:hover{text-decoration:underline}
+form{margin:0 0 8px}
+.field{margin:0 0 18px}
+.field label{display:block;font-weight:650;font-size:14.5px;margin-bottom:6px}
+.field .hint{display:block;font-weight:400;font-size:13px;color:var(--ink-dim);margin-top:3px}
+.field input[type=text],.field input[type=email],.field input[type=tel]{
+  width:100%;padding:11px 13px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--ground);border:1px solid var(--line);border-radius:7px;
+}
+.field input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.consent{
+  background:var(--navy-wash);border:1px solid var(--line);border-radius:9px;
+  padding:18px;margin:18px 0;display:flex;gap:14px;align-items:flex-start;
+}
+.consent input[type=checkbox]{
+  flex:0 0 auto;width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer;
+}
+.consent .body{flex:1 1 auto;min-width:0}
+.consent label{display:block;font-size:14.5px;line-height:1.6;cursor:pointer}
+.consent label p{margin:0 0 10px}
+.consent label p:last-child{margin-bottom:0}
+.consent .tag{
+  display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:4px;
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+}
+.consent .tag.req{background:var(--accent);color:var(--accent-ink)}
+.consent .tag.opt{background:transparent;color:var(--ink-dim);border:1px solid var(--ink-faint)}
+.consent.required{border-left:4px solid var(--accent)}
+.consent.optional{background:transparent;border-style:dashed}
+button{
+  font:inherit;font-weight:650;font-size:15.5px;padding:13px 28px;cursor:pointer;
+  background:var(--accent);color:var(--accent-ink);border:none;border-radius:8px;
+}
+button:hover{background:var(--navy-soft)}
+#done{
+  background:var(--navy-wash);border:1px solid var(--line);border-left:4px solid var(--ok);
+  border-radius:0 8px 8px 0;padding:18px;margin:26px 0 0;
+}
+#done .h{color:var(--ok)}
+#done p:last-child{margin-bottom:0}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="kicker">Get Charged Up</p>
+    <h1>Voluntary Participation</h1>
+    <p class="sub">Opt in to receive Get Charged Up messages, and how to stop them at any time.</p>
+  </div>
+</header>
+
+<main><div class="wrap">
+
+  <p class="meta">Effective September 14, 2026 &middot; Participation is entirely voluntary</p>
+
+  <p class="lede">Get Charged Up is invitation-only. If Stephen has invited you to play,
+  this is where you say yes. There are two separate agreements below: the first is
+  <strong>required</strong> to play and covers the game terms and the game emails; the second
+  is <strong>entirely optional</strong> and covers text messages. You can say yes to the first
+  and no to the second, and you can withdraw either one at any moment, from any message, for
+  no reason at all.</p>
+
+  <div class="note">
+    <span class="h">Before you fill this in</span>
+    <ul>
+      <li>You must be <strong>18 or older</strong>.</li>
+      <li>Enrol <strong>only your own</strong> email address, and only your own mobile
+          number if you choose to add one.</li>
+      <li>Nothing is bought, sold, wagered or won. Read the
+          <a href="https://su11yman.github.io/get-charged-up/rules" target="_top">Overview &amp; Rules</a> to see what the game actually is.</li>
+      <li>Taking part is optional in every direction: you are not required to join, you are
+          not required to pick in any given game, and leaving costs nothing.</li>
+    </ul>
+  </div>
+
+  <h2>Join the game</h2>
+
+  <form id="join" novalidate>
+    <div class="field">
+      <label for="name">Your name
+        <span class="hint">As you want it to appear on the leader board.</span>
+      </label>
+      <input type="text" id="name" name="name" autocomplete="name" required>
+    </div>
+
+    <div class="field">
+      <label for="email">Email address
+        <span class="hint">Where invitations and recaps are sent, and where you reply with a pick.</span>
+      </label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+    </div>
+
+    <div class="field">
+      <label for="phone">Mobile number <span class="hint" style="display:inline">(optional)</span>
+        <span class="hint">Only needed if you tick the optional text-message box below. It
+        must be your own US mobile number. Leave it blank to play by email only.</span>
+      </label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel"
+             placeholder="(813) 555-0142">
+    </div>
+
+    <div class="consent required">
+      <input type="checkbox" id="consent-game" name="consent-game" value="yes">
+      <div class="body">
+        <span class="tag req">Required to play</span>
+        <label for="consent-game">
+          <p><strong>Yes, I agree to the Get Charged Up Terms &amp; Conditions, and I consent
+          to receive game-related emails from Get Charged Up, operated by Stephen Sullivan,
+          Sole Proprietor, at the email address above.</strong></p>
+          <p>These are game emails only &mdash; pick invitations, pick reminders, line-up
+          summaries, results, roster alerts and replies to commands I send. No marketing of
+          any kind will be sent. I can stop the emails at any time by replying
+          <code>OPT-OUT</code> to any of them.</p>
+          <p>I confirm I am 18 or older and that this email address is mine. I have read the
+          <a href="https://su11yman.github.io/get-charged-up/terms" target="_top">Terms &amp; Conditions</a> and the
+          <a href="https://su11yman.github.io/get-charged-up/privacy" target="_top">Privacy Policy</a>.
+          Nothing is bought, sold, wagered or won.</p>
+        </label>
+      </div>
+    </div>
+
+    <div class="consent optional">
+      <input type="checkbox" id="consent-sms" name="consent-sms" value="yes">
+      <div class="body">
+        <span class="tag opt">Optional &mdash; you may leave this unticked</span>
+        <label for="consent-sms">
+          <p><strong>Optional: yes, I also consent to receive text messages (SMS) about the
+          game from Get Charged Up, operated by Stephen Sullivan, Sole Proprietor, at the
+          mobile number above.</strong> This is <strong>not required</strong> &mdash; you can
+          play the game entirely by email, and leaving this box unticked changes nothing else
+          about your participation.</p>
+          <p>These are game texts only &mdash; pick invitations, reminders, line-up summaries,
+          results and replies to commands I send. No marketing of any kind will be sent.
+          <strong>Message frequency varies</strong> and follows the Tampa Bay Lightning
+          schedule, typically 3&ndash;6 messages per game.</p>
+          <p><strong>Message and data rates may apply</strong> &mdash; your mobile carrier may
+          charge you for each message you send or receive, depending on your plan.
+          <strong>Reply STOP to any Get Charged Up text to unsubscribe from text messages at
+          any time</strong>, at no cost; reply <code>HELP</code> for help. Stopping the texts
+          does not stop the game emails. Consent to texts is not a condition of any purchase
+          &mdash; there is nothing to purchase &mdash; and it is not a condition of playing.</p>
+          <p>I confirm the mobile number above is mine and that I am 18 or older.</p>
+        </label>
+      </div>
+    </div>
+
+    <button type="submit">Yes, sign me up</button>
+  </form>
+
+  <div class="note" style="margin-top:22px">
+    <span class="h">What happens when you press the button</span>
+    <p>Your own mail program opens with a pre-filled message to
+    <a href="mailto:ai.theboltslife@gmail.com">ai.theboltslife@gmail.com</a> containing what you typed above and the consent
+    wording you agreed to. <strong>You still have to press Send in your mail program</strong>
+    &mdash; nothing leaves this page on its own, and nothing is stored by this website. That
+    sent email is the record of your consent, and you keep a copy of it in your own Sent
+    folder.</p>
+    <p>If nothing opens, no matter &mdash; just email
+    <a href="mailto:ai.theboltslife@gmail.com?subject=Get%20Charged%20Up%20opt-in">ai.theboltslife@gmail.com</a> with your
+    name, email address and the words &ldquo;I agree to the Get Charged Up terms and to
+    receive game emails&rdquo;. If you also want the optional text messages, add your mobile
+    number and the words &ldquo;I also consent to receive game text messages&rdquo;. That
+    works just as well.</p>
+  </div>
+
+  <div id="done" hidden>
+    <span class="h">Your mail program should be opening</span>
+    <p>Check for a draft addressed to <strong>ai.theboltslife@gmail.com</strong> and press
+    <strong>Send</strong>. You will get a welcome message back with the rules and the command
+    list. If no draft appeared, email us directly at
+    <a href="mailto:ai.theboltslife@gmail.com">ai.theboltslife@gmail.com</a>.</p>
+  </div>
+
+  <h2>How to stop &mdash; at any time</h2>
+  <div class="note warn">
+    <span class="h">Opting out</span>
+    <p><strong>By text:</strong> reply <code>STOP</code> to any Get Charged Up message.
+    <code>END</code>, <code>QUIT</code>, <code>CANCEL</code>, <code>UNSUBSCRIBE</code> and
+    <code>OPT-OUT</code> do the same thing. You will get one final message confirming you are
+    unsubscribed, and then nothing further.</p>
+    <p><strong>By email:</strong> reply <code>OPT-OUT</code> to any Get Charged Up email, or
+    send a message to <a href="mailto:ai.theboltslife@gmail.com?subject=OPT-OUT">ai.theboltslife@gmail.com</a> with
+    &ldquo;OPT-OUT&rdquo; as the subject.</p>
+    <p><strong>To leave completely:</strong> email
+    <a href="mailto:ai.theboltslife@gmail.com?subject=Please%20remove%20me">ai.theboltslife@gmail.com</a> and ask to be
+    removed. Your record is deleted; see the <a href="https://su11yman.github.io/get-charged-up/privacy" target="_top">Privacy Policy</a> for
+    exactly what that means.</p>
+  </div>
+  <p>Text and email are switched off separately, so <code>STOP</code> by text ends the texts
+  and leaves the emails running. Opting out is immediate, free, needs no reason, and can be
+  undone by replying <code>START</code> from the same number whenever you like.</p>
+
+  <h2>How to get help</h2>
+  <p>Reply <code>HELP</code> to any text message for a short message telling you what the
+  program is and how to stop it. For anything a keyword cannot answer, email
+  <a href="mailto:ai.theboltslife@gmail.com">ai.theboltslife@gmail.com</a> &mdash; Stephen reads it himself. Reply
+  <code>WELCOME</code> at any time to have the rules re-sent to you.</p>
+
+  <h2>The disclosures, in one place</h2>
+  <ul>
+    <li><strong>Program name:</strong> Get Charged Up</li>
+    <li><strong>Operated by:</strong> Stephen Sullivan, Sole Proprietor</li>
+    <li><strong>What you get:</strong> pick invitations, pick reminders, puck-drop line-up
+        summaries, game results, roster alerts, and replies to commands you send. No
+        marketing, ever.</li>
+    <li><strong>Two separate consents:</strong> game terms and game emails are required to
+        play; <strong>text messages (SMS) are optional</strong> and are consented to
+        separately. Either can be withdrawn on its own.</li>
+    <li><strong>Message frequency varies</strong> &mdash; typically 3&ndash;6 messages per
+        Lightning game; usually under 20 in a busy week; none in the off-season.</li>
+    <li><strong>Message and data rates may apply.</strong></li>
+    <li><strong>Reply STOP to cancel. Reply HELP for help.</strong></li>
+    <li><strong>Carriers are not liable</strong> for delayed or undelivered messages.</li>
+    <li><strong>No cost, no purchase, no prize, no wager.</strong> Consent is not a condition
+        of any purchase.</li>
+    <li><strong>Terms:</strong> <a href="https://su11yman.github.io/get-charged-up/terms" target="_top">https://su11yman.github.io/get-charged-up/terms</a> &middot;
+        <strong>Privacy:</strong> <a href="https://su11yman.github.io/get-charged-up/privacy" target="_top">https://su11yman.github.io/get-charged-up/privacy</a></li>
+  </ul>
+
+  <div class="foot">
+    <p><strong>Get Charged Up</strong> is operated by Stephen Sullivan, Sole Proprietor.<br>
+       Contact: <a href="mailto:ai.theboltslife@gmail.com">ai.theboltslife@gmail.com</a></p>
+    <p>Effective September 14, 2026. Published at <a href="https://su11yman.github.io/get-charged-up/" target="_top">su11yman.github.io/get-charged-up</a>.</p>
+    <div class="links">
+    <a href="https://su11yman.github.io/get-charged-up/rules" target="_top">Overview &amp; Rules</a>
+    <a href="https://su11yman.github.io/get-charged-up/terms" target="_top">Terms &amp; Conditions</a>
+    <a href="https://su11yman.github.io/get-charged-up/privacy" target="_top">Privacy Policy</a>
+    </div>
+  </div>
+</div></main>
+
+<script>
+(function () {
+  var form = document.getElementById('join');
+  if (!form) return;
+  var done = document.getElementById('done');
+
+  var GAME_STATEMENT = [
+    'Yes, I agree to the Get Charged Up Terms & Conditions, and I consent to',
+    'receive game-related emails from Get Charged Up, operated by Stephen',
+    'Sullivan, Sole Proprietor, at the email address above. These are game',
+    'emails only — pick invitations, pick reminders, line-up summaries,',
+    'results, roster alerts and replies to commands I send. No marketing of any',
+    'kind will be sent. I can stop the emails at any time by replying OPT-OUT to',
+    'any of them. I confirm I am 18 or older and that this email address is mine.',
+    'I have read the Terms & Conditions and the Privacy Policy. Nothing is',
+    'bought, sold, wagered or won.'
+  ].join('\n');
+
+  var SMS_STATEMENT = [
+    'Optional: yes, I also consent to receive text messages (SMS) about the game',
+    'from Get Charged Up, operated by Stephen Sullivan, Sole Proprietor, at the',
+    'mobile number above. This is not required to play. These are game texts only',
+    '— pick invitations, reminders, line-up summaries, results and replies to',
+    'commands I send. No marketing of any kind will be sent. Message frequency',
+    'varies and follows the Tampa Bay Lightning schedule, typically 3-6 messages',
+    'per game. Message and data rates may apply. Reply STOP to any Get Charged Up',
+    'text to unsubscribe from text messages at any time, at no cost; reply HELP',
+    'for help. Stopping the texts does not stop the game emails. Consent to texts',
+    'is not a condition of any purchase and is not a condition of playing. I',
+    'confirm the mobile number above is mine and that I am 18 or older.'
+  ].join('\n');
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+
+    var nameEl  = document.getElementById('name');
+    var emailEl = document.getElementById('email');
+    var phoneEl = document.getElementById('phone');
+    var gameEl  = document.getElementById('consent-game');
+    var smsEl   = document.getElementById('consent-sms');
+
+    var name  = nameEl.value.trim();
+    var email = emailEl.value.trim();
+    var phone = phoneEl.value.trim();
+    var gameConsent = gameEl.checked;
+    var smsConsent  = smsEl.checked;
+
+    if (!name)  { alert('Please enter your name.'); nameEl.focus(); return; }
+    if (!email) { alert('Please enter your email address.'); emailEl.focus(); return; }
+    if (!gameConsent) {
+      alert('The first box is required. Without agreeing to the game terms and to ' +
+            'receiving game emails we cannot enrol you — that is the whole point of it.');
+      gameEl.focus();
+      return;
+    }
+    if (smsConsent && !phone) {
+      alert('You ticked the optional text-message box, so please enter the mobile number ' +
+            'the texts should go to — or untick that box to play by email only.');
+      phoneEl.focus();
+      return;
+    }
+
+    var lines = [
+      'Get Charged Up opt-in.',
+      '',
+      'Name:   ' + name,
+      'Email:  ' + email,
+      'Mobile: ' + (phone || '(not provided)'),
+      '',
+      'Consent given: ' + new Date().toString(),
+      'From page:     ' + window.location.href,
+      '',
+      '--- REQUIRED CONSENT: game terms and game emails ---',
+      'Agreed: YES',
+      '',
+      GAME_STATEMENT,
+      '',
+      '--- OPTIONAL CONSENT: text messages (SMS) ---',
+      'Agreed: ' + (smsConsent ? 'YES' : 'NO — I do not want text messages'),
+      ''
+    ];
+
+    if (smsConsent) { lines.push(SMS_STATEMENT); }
+    else { lines.push('I declined the optional text-message consent. Email only, please.'); }
+
+    var body = lines.join('\n');
+
+    var href = 'mailto:ai.theboltslife@gmail.com' +
+               '?subject=' + encodeURIComponent('Get Charged Up opt-in — ' + name) +
+               '&body='    + encodeURIComponent(body);
+
+    if (done) { done.hidden = false; }
+    window.location.href = href;
+  });
+})();
+</script>
+
+</body>
+</html>

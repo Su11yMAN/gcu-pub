@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview &amp; Rules &middot; Get Charged Up</title>
+<meta name="description" content="How the Get Charged Up Lightning pick&rsquo;em game works: scoring, making picks, and every command you can reply with.">
+<meta name="robots" content="index, follow">
+<style>
+:root{
+  --navy:#002868; --navy-deep:#001a45; --navy-soft:#1a3d7c; --navy-wash:#eef2f9;
+  --paper:#ffffff; --ground:#f5f7fa; --ink:#11161d; --ink-dim:#57636f;
+  --ink-faint:#8592a0; --line:#dde3ea; --ok:#0f7a3d; --warn:#a35b06; --bad:#c02626;
+  --accent:#002868; --accent-ink:#ffffff; --code-bg:#eef2f9;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#7ea2dd; --navy-deep:#0c1420; --navy-soft:#9bb6e6; --navy-wash:#16202f;
+    --paper:#141a22; --ground:#0c1118; --ink:#e7ecf3; --ink-dim:#a3b0c0;
+    --ink-faint:#74839a; --line:#27313f; --ok:#4fb87a; --warn:#d9973f; --bad:#e8706b;
+    --accent:#7ea2dd; --accent-ink:#0c1420; --code-bg:#1b2533;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+.mast{background:var(--navy-deep);color:#fff;padding:34px 0 28px;border-bottom:3px solid var(--navy)}
+@media (prefers-color-scheme: dark){.mast{border-bottom-color:var(--line)}}
+.mast .kicker{
+  margin:0 0 6px; font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:#9bb6e6; font-weight:700;
+}
+.mast h1{margin:0;font-size:clamp(26px,5vw,38px);line-height:1.15;letter-spacing:-.01em;color:#fff}
+.mast .sub{margin:10px 0 0;color:#c4d3ea;font-size:15px;max-width:60ch}
+main{background:var(--paper);padding:8px 0 56px}
+main .wrap{padding-top:28px}
+h2{
+  margin:40px 0 12px;font-size:20px;line-height:1.3;letter-spacing:-.01em;
+  padding-bottom:8px;border-bottom:1px solid var(--line);
+}
+h2:first-of-type{margin-top:24px}
+h3{margin:26px 0 8px;font-size:16px;line-height:1.35}
+p,li{color:var(--ink)}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 7px}
+a{color:var(--accent)}
+strong{font-weight:650}
+.lede{font-size:17.5px;line-height:1.6;color:var(--ink)}
+.meta{
+  margin:0 0 22px;font-size:13px;color:var(--ink-faint);
+  padding-bottom:16px;border-bottom:1px solid var(--line);
+}
+.note{
+  background:var(--navy-wash);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:16px 18px;margin:0 0 26px;
+}
+.note p:last-child,.note ul:last-child,.note ol:last-child{margin-bottom:0}
+.note .h{
+  display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:700;color:var(--accent);margin-bottom:7px;
+}
+.note.warn{border-left-color:var(--warn)}
+.note.warn .h{color:var(--warn)}
+.note.key{background:var(--navy-deep);border-color:var(--navy-deep);color:#e7ecf3}
+.note.key .h{color:#9bb6e6}
+.note.key p,.note.key li{color:#dce5f2}
+.note.key strong{color:#fff}
+.tw{overflow-x:auto;margin:0 0 22px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{
+  background:var(--navy-wash);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-dim);font-weight:700;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:650}
+code,kbd{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;
+  background:var(--code-bg);border:1px solid var(--line);border-radius:4px;padding:1px 6px;
+  white-space:nowrap;
+}
+.foot{
+  border-top:1px solid var(--line);margin-top:48px;padding:24px 0 8px;
+  font-size:13.5px;color:var(--ink-dim);
+}
+.foot p{margin:0 0 8px;color:var(--ink-dim)}
+.foot .links{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+.foot .links a{font-weight:600;text-decoration:none}
+.foot .links a:hover{text-decoration:underline}
+form{margin:0 0 8px}
+.field{margin:0 0 18px}
+.field label{display:block;font-weight:650;font-size:14.5px;margin-bottom:6px}
+.field .hint{display:block;font-weight:400;font-size:13px;color:var(--ink-dim);margin-top:3px}
+.field input[type=text],.field input[type=email],.field input[type=tel]{
+  width:100%;padding:11px 13px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--ground);border:1px solid var(--line);border-radius:7px;
+}
+.field input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.consent{
+  background:var(--navy-wash);border:1px solid var(--line);border-radius:9px;
+  padding:18px;margin:26px 0;display:flex;gap:14px;align-items:flex-start;
+}
+.consent input[type=checkbox]{
+  flex:0 0 auto;width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer;
+}
+.consent label{font-size:14.5px;line-height:1.6;cursor:pointer}
+button{
+  font:inherit;font-weight:650;font-size:15.5px;padding:13px 28px;cursor:pointer;
+  background:var(--accent);color:var(--accent-ink);border:none;border-radius:8px;
+}
+button:hover{background:var(--navy-soft)}
+#done{
+  background:var(--navy-wash);border:1px solid var(--line);border-left:4px solid var(--ok);
+  border-radius:0 8px 8px 0;padding:18px;margin:26px 0 0;
+}
+#done .h{color:var(--ok)}
+#done p:last-child{margin-bottom:0}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="kicker">Get Charged Up</p>
+    <h1>Overview &amp; Rules</h1>
+    <p class="sub">How the Get Charged Up Lightning pick&rsquo;em game works: scoring, making picks, and every command you can reply with.</p>
+  </div>
+</header>
+
+<main><div class="wrap">
+  <div class="note key">
+    <span class="h">A private game &mdash; nothing is sold</span>
+    <p><strong>Get Charged Up</strong> is a private, non-commercial hockey pick&rsquo;em game
+    run by Stephen Sullivan, Sole Proprietor for friends and family. It is not a business offering. Nothing is sold and
+    nothing is bought. There is no fee, no subscription, no prize, no payout, no wager,
+    no advertising and no sponsorship. No goods or services are provided, and no
+    commitment of any kind is made to any participant. Nobody stands to gain or lose
+    anything of value by taking part.</p>
+  </div>
+
+  <p class="meta">Effective September 14, 2026 &middot; Tampa Bay Lightning season</p>
+
+  <h2>The game in one paragraph</h2>
+  <p class="lede">Before every Tampa Bay Lightning game, you pick <strong>one Lightning
+  skater</strong>. You earn points from what that skater does in that game. A leader board
+  tracks everyone across the season. That is the whole game. There is nothing to win and
+  nothing to lose &mdash; see the <a href="https://su11yman.github.io/get-charged-up/terms" target="_top">Terms &amp; Conditions</a>.</p>
+
+  <p>The game runs itself. It watches the NHL schedule, sends an invitation before each
+  game, reads your reply, keeps track of who is injured, scores the game when it ends, and
+  sends a recap. You only ever have to do one thing: reply with a player.</p>
+
+  <h2>How scoring works</h2>
+  <p>Points come from your picked skater&rsquo;s performance in that one game. They stack
+  &mdash; a player who scores the Lightning&rsquo;s first goal and later wins the game
+  collects all of it.</p>
+  <div class="tw"><table>
+    <thead><tr><th>What your player does</th><th>Points</th></tr></thead>
+    <tbody>
+      <tr><td>Each goal scored</td><td class="num">+1 each</td></tr>
+      <tr><td>Scores the Lightning&rsquo;s first goal of the game</td><td class="num">+1</td></tr>
+      <tr><td>Scores the game-winning goal (shootout included)</td><td class="num">+1</td></tr>
+      <tr><td>Scores three or more goals &mdash; a hat trick</td><td class="num">+1</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Playoffs multiply the whole game</h3>
+  <p>In the playoffs the <strong>entire game total</strong> is multiplied. The multipliers are
+  not cumulative &mdash; each round has its own.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Round</th><th>Multiplier</th></tr></thead>
+    <tbody>
+      <tr><td>First round</td><td class="num">2&times;</td></tr>
+      <tr><td>Second round</td><td class="num">3&times;</td></tr>
+      <tr><td>Conference finals</td><td class="num">4&times;</td></tr>
+      <tr><td>Stanley Cup Final</td><td class="num">5&times;</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The two rules people ask about</h3>
+  <ul>
+    <li><strong>Shootouts.</strong> A player who wins it in the shootout gets the
+        <strong>+1 game-winner bonus but no goal credit</strong> &mdash; a shootout goal is not
+        an individual goal.</li>
+    <li><strong>No game winner in a loss.</strong> If the Lightning lose, nobody is awarded the
+        game-winner point.</li>
+  </ul>
+
+  <h3>Two separate leader boards</h3>
+  <p><strong>Preseason is scored on its own ledger.</strong> The regular season and the
+  playoffs share a second one. Preseason points never carry into the season standings.</p>
+
+  <h2>How to make your picks</h2>
+  <ol>
+    <li><strong>An invitation arrives</strong> by email, text, or both &mdash; whichever you
+        chose. It lists every eligible skater, forwards and defence, with the current injury
+        and scratch status beside each one. <strong>Goalies cannot be picked.</strong></li>
+    <li><strong>Reply with one player.</strong> Either works:
+      <ul>
+        <li>a <strong>jersey number</strong> &mdash; <code>86</code></li>
+        <li>a <strong>name</strong> &mdash; <code>Kucherov</code>. Close enough spelling is fine;
+            if it is genuinely ambiguous you will be asked which one you meant.</li>
+      </ul>
+      In the email invitation, every player name is also a link that opens a reply already
+      filled in &mdash; one tap, then send.
+    </li>
+    <li><strong>Keep the four-character code in the subject line.</strong> Every message carries
+        one, like <code>[GB6R]</code>. That is how your reply is tied back to the right game
+        even days later or from a different thread. Simply hitting Reply keeps it for you.</li>
+    <li><strong>Change your mind freely.</strong> Reply again with a different player and the new
+        one replaces the old. <strong>The last pick before puck drop is the one that counts.</strong>
+        After puck drop, picks are locked.</li>
+  </ol>
+
+  <div class="note">
+    <span class="h">Only one game is ever open at a time</span>
+    <p>An invitation goes out up to three days before puck drop, and never before the previous
+    game&rsquo;s results have gone out. So there is never a question of which game you are
+    picking for &mdash; there is only ever one.</p>
+  </div>
+
+  <h3>Reminders</h3>
+  <p>If you have not picked yet, the invitation is re-sent as a reminder <strong>one hour
+  before the game&rsquo;s start time of day, each day until the game</strong>. A 5:00&nbsp;pm
+  Sunday game nudges at 4:00&nbsp;pm on Friday, Saturday and Sunday. <strong>Picking stops
+  them immediately</strong>, and so does puck drop. Each reminder is freshly rendered, so it
+  shows the current injury report rather than whatever was true when the first invitation
+  went out.</p>
+
+  <h3>What you get around each game</h3>
+  <div class="tw"><table>
+    <thead><tr><th>When</th><th>What arrives</th></tr></thead>
+    <tbody>
+      <tr><td>Up to 3 days before</td><td>The pick invitation, with the full eligible roster</td></tr>
+      <tr><td>Daily until you pick</td><td>A reminder, one hour before the game&rsquo;s time of day</td></tr>
+      <tr><td>If your player is ruled out</td><td>A roster alert, so you can change your pick</td></tr>
+      <tr><td>At puck drop</td><td>The line-up summary &mdash; everyone&rsquo;s picks for this game</td></tr>
+      <tr><td>After the final horn</td><td>The recap &mdash; scoring, points earned, updated leader board</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Commands you can use in a reply</h2>
+  <p>These work the same way by <strong>text or email</strong>. Send one on its own and it is
+  recognised; capitalisation does not matter.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Reply with</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td><code>86</code> or <code>Kucherov</code></td>
+          <td>Records your pick for the open game. Reply again to change it.</td></tr>
+      <tr><td><code>ROSTER</code></td>
+          <td>The expected skaters for the open game &mdash; forwards and defence, with status.
+              No goalies, since they cannot be picked.
+              <br><em>Also:</em> <code>LINEUP</code>, <code>PLAYERS</code></td></tr>
+      <tr><td><code>MATCH-UP</code></td>
+          <td>Both teams&rsquo; records, the top players on each side, and how the last meeting
+              went. <br><em>Also:</em> <code>MATCHUP</code>, <code>GAME</code></td></tr>
+      <tr><td><code>WELCOME</code></td>
+          <td>Re-sends the rules and this command list.
+              <br><em>Also:</em> <code>INFO</code>, <code>RULES</code></td></tr>
+      <tr><td><code>GET CHARGED</code></td>
+          <td>A round-trip test &mdash; you get a confirmation straight back, so you know
+              messages reach you and your replies reach us. Nothing is recorded beyond a line
+              in the log. The welcome email has a button for it.</td></tr>
+      <tr><td><code>HELP</code></td>
+          <td>What this program is and how to stop it.</td></tr>
+      <tr><td><code>STOP</code></td>
+          <td>Stops all messages on the channel you sent it from, at once.
+              <br><em>Also:</em> <code>END</code>, <code>QUIT</code>, <code>CANCEL</code>,
+              <code>UNSUBSCRIBE</code>, <code>OPT-OUT</code></td></tr>
+      <tr><td><code>START</code></td>
+          <td>Turns that channel back on after a <code>STOP</code>.
+              <br><em>Also:</em> <code>UNSTOP</code>, <code>YES</code></td></tr>
+    </tbody>
+  </table></div>
+  <p><code>WELCOME</code>, <code>HELP</code>, <code>STOP</code> and <code>START</code> work
+  at any time, even when no game is open. The rest need an open game, since they describe
+  one.</p>
+  <p>Text and email are separate channels: <code>STOP</code> sent by text ends the texts and
+  leaves the emails running. Full details are on the
+  <a href="https://su11yman.github.io/get-charged-up/opt-in" target="_top">Voluntary Participation</a> page.</p>
+
+  <h2>Reading the game numbers</h2>
+  <p>Every game carries a number after the team names, and its shape tells you which part of
+  the season it belongs to.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Season</th><th>Looks like</th><th>Means</th></tr></thead>
+    <tbody>
+      <tr><td>Preseason</td><td><code>Lightning vs Predators (P1)</code></td>
+          <td>Preseason game 1</td></tr>
+      <tr><td>Regular season</td><td><code>Lightning at Rangers (G01)</code></td>
+          <td>Regular-season game 1</td></tr>
+      <tr><td>Playoffs</td><td><code>Lightning at Canadiens (R1G3)</code></td>
+          <td>Round 1, game 3</td></tr>
+    </tbody>
+  </table></div>
+  <p>A postponement that reorders the calendar renumbers everything cleanly, so the numbers
+  always read in true order.</p>
+
+  <h2>Where the numbers come from</h2>
+  <p>Schedules, rosters, scoring, shootouts, scratches, records and season statistics come
+  from the NHL&rsquo;s public feed; injury reports come from ESPN&rsquo;s league-wide feed.
+  Both are public sources we do not control, and both are occasionally late or wrong. Scores
+  may be corrected after the fact if the source data changes. Any scoring question is settled
+  informally by Stephen Sullivan, Sole Proprietor, and since nothing is at stake, settling it takes about four
+  seconds.</p>
+
+  <div class="note">
+    <span class="h">Not affiliated with anyone</span>
+    <p>Get Charged Up is an independent game played among friends and family. It is not
+    affiliated with, endorsed by or sponsored by the NHL, the Tampa Bay Lightning, ESPN, or
+    any team, league or player. Team names and marks belong to their owners and are used here
+    only to say which games are being played.</p>
+  </div>
+
+  <h2>Joining and leaving</h2>
+  <p>To join, use the <a href="https://su11yman.github.io/get-charged-up/opt-in" target="_top">Voluntary Participation</a> page. To leave, reply
+  <code>STOP</code> to any text or <code>OPT-OUT</code> to any email &mdash; instantly, with no
+  reason needed. What happens to your information is set out in the
+  <a href="https://su11yman.github.io/get-charged-up/privacy" target="_top">Privacy Policy</a>.</p>
+
+  <div class="foot">
+    <p><strong>Get Charged Up</strong> is operated by Stephen Sullivan, Sole Proprietor.<br>
+       Contact: <a href="mailto:ai.theboltslife@gmail.com">ai.theboltslife@gmail.com</a></p>
+    <p>Effective September 14, 2026. Published at <a href="https://su11yman.github.io/get-charged-up/" target="_top">su11yman.github.io/get-charged-up</a>.</p>
+    <div class="links">
+    <a href="https://su11yman.github.io/get-charged-up/opt-in" target="_top">Join the Game</a>
+    <a href="https://su11yman.github.io/get-charged-up/terms" target="_top">Terms &amp; Conditions</a>
+    <a href="https://su11yman.github.io/get-charged-up/privacy" target="_top">Privacy Policy</a>
+    </div>
+  </div>
+</div></main>
+
+</body>
+</html>
